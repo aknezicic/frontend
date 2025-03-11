@@ -1,0 +1,35 @@
+.navbar.sticky {
+	position: sticky;
+}
+h1.equipment {
+	color: #fbd784;
+	font-family: "DM Serif Display", sans-serif;
+    font-size: 60px;
+    line-height: 120%;
+    text-transform: capitalize;
+    font-weight: 600;
+	letter-spacing: 6px;
+    margin-top: 50px;
+}
+.equipment.tagline {
+    margin-top: 50px;
+}
+video {
+    margin-bottom: 100px;
+}
+h7 {
+	font-size: 22px;
+    line-height: 2;
+    font-weight: 700;
+	letter-spacing: 2px;
+    color: #fff; 
+}
+li.h7 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff; 
+}
+.equipment img {
+    margin: 50px 0px;
+}
+

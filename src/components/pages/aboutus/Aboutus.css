@@ -1,0 +1,85 @@
+
+h1.about-us {
+	font-family: "DM Serif Display", sans-serif;
+  font-size: 60px;
+  line-height: 120%;
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: 6px;
+  text-align: center;
+	display: block;
+	margin-top: 50px;
+  margin-bottom: 100px;
+  max-width: 100%; 
+  color: #fbd784;
+}
+.slick-dots li button {
+    background: #fff;
+}
+.slider .slick-prev {
+  left: 100px;
+}
+.slider .slick-next {
+  right: 100px;
+}
+.slider .slick-prev:before, .slider .slick-next:before {
+  font-size: 40px;
+  color: #fff;
+}
+.slider-slide {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.slider img {
+  width: 100%;
+  height: 900px;
+  object-fit: contain;
+}
+.image-caption {
+  position: absolute;
+  bottom: 0px;
+  left: 350px;
+  background: rgba(0, 0, 0, 0.6); 
+  color: #fff;
+  font-size: 24px;
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-family: Arial, sans-serif;
+  z-index: 10;
+  max-width: calc(100% - 20px); /* Da ne ide caption van slike */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+h5 {
+    color: #fbd784;
+    font-size: 24px;
+    line-height: 2;
+    font-weight: 800;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+h6 {
+    font-size: 22px;
+    line-height: 2;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+  
+.wp-block-image.aligncenter {
+    display: block;
+  }
+.wp-image-187 {
+    width: 725px;
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+  
+  

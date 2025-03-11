@@ -1,0 +1,45 @@
+.weather {
+    display: flex;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+.weather h2 {
+    color: #000;
+    font-size: 40px;
+}
+.weather p {
+    color: #000;
+}
+a.weather-btn {
+    background-color: #fff;
+	color: #000;;
+	border-radius: 90px;
+	font-size: 24px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-weight: 800;
+	padding: 11px 24px;
+	border: none;
+	text-decoration: none;
+}
+a.weather-btn:hover {
+    color: #fbd784;
+}
+.weather input {
+    width: 300px;
+	color: red;
+}
+.weather-forecast {
+	padding-top: 50px;
+	padding-left: 100px;
+	padding-right: 100px;
+	padding-bottom: 50px;
+}
+p.font-bold {
+	font-size: 22px;
+	font-weight: 800;
+}
+.weather img {
+    width: 100px;
+    margin-top: 0px;
+}

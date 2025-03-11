@@ -1,0 +1,54 @@
+a.exchange.btn {
+    background-color: #fff;
+	color: #000;;
+	border-radius: 90px;
+	font-size: 24px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-weight: 800;
+	padding: 11px 24px;
+	border: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+a.exchange.btn:hover {
+    color: #fbd784;
+}
+.exchange h1 {
+    color: #fbd784;
+	font-family: "DM Serif Display", sans-serif;
+    font-size: 60px;
+    text-transform: math-auto;
+    line-height: 120%;
+    display: block;
+    font-weight: 600;
+	letter-spacing: 6px;
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    max-width: 100%; 
+}
+.exchange label {
+    display: inline-block;
+    color: #fff;
+    font-size: 24px;
+}
+.exchange input {
+    margin: 10px;
+}
+.exchange select {
+    word-wrap: normal;
+    margin: 10px;
+}
+.exchange h2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: "DM Serif Display", sans-serif;
+    font-size: 32px;
+    line-height: 110%;
+    font-weight: 600;
+    color: #fff;
+}
+.exchange p {
+    margin-bottom: 100px;
+}

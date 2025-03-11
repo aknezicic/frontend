@@ -1,0 +1,43 @@
+.useful h1 {
+    color: #fbd784;
+	font-family: "DM Serif Display", sans-serif;
+    font-size: 50px;
+    line-height: 120%;
+    text-transform: capitalize;
+    display: block;
+    font-weight: 600;
+	letter-spacing: 6px;
+    text-align: center;
+	margin-top: 100px;
+    margin-bottom: 100px;
+    max-width: 100%; 
+}
+.useful h2 {
+    color: #fff;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-family: "DM Serif Display", sans-serif;
+    font-size: 32px;
+    line-height: 110%;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-align: center;
+}
+.useful .left {
+    align-self: center;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+.useful p {
+    margin-top: 30px;
+    color: #fff;
+}
+.useful img {
+    margin-bottom: 50px;
+}
+.useful .right {
+    align-self: center;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+

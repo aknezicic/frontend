@@ -1,0 +1,38 @@
+.singlecountry h1 {
+    color: #fbd784;
+	font-family: "DM Serif Display", sans-serif;
+    font-size: 60px;
+    line-height: 120%;
+    text-transform: capitalize;
+    display: block;
+    font-weight: 600;
+	letter-spacing: 6px;
+    text-align: left;
+	margin-top: 50px;
+    margin-bottom: 100px;
+    max-width: 100%; 
+}
+.singlecountry h3 {
+    margin-top: 20px;
+}
+.singlecountry p  {
+    color: #fff;
+    font-size: 22px;
+    margin-bottom: 0px;
+}
+.singlecountry a {
+    color: #fff;
+    font-size: 22px;
+    text-decoration: underline;
+}
+.singlecountry a:hover {
+    color: #fbd784;
+    text-decoration: none;
+}
+.singlecountry img {
+    width: 600px;
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+

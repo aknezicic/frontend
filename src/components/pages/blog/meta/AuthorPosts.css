@@ -1,0 +1,30 @@
+.authorposts h1 {
+    color: #fbd784;
+	font-family: "DM Serif Display", sans-serif;
+    font-size: 60px;
+    line-height: 120%;
+    text-transform: capitalize;
+    display: block;
+    font-weight: 600;
+	letter-spacing: 6px;
+    text-align: center;
+	margin-left: 15px;
+	margin-top: 50px;
+    margin-bottom: 100px;
+    max-width: 100%; 
+}
+.authorposts img {
+    margin-bottom: 50px;
+    width: 1296px;
+    height: 864px;
+}
+.authorposts a {
+    color: #fbd784;
+    text-decoration: underline;
+}
+.authorposts a:hover {
+    text-decoration: none;
+}
+.authorposts h2:hover {
+    color: #fbd784;
+}

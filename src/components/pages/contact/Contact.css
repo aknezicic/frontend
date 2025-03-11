@@ -1,0 +1,131 @@
+/* Stil cijelog wrappera */
+.wpforms-container {
+    max-width: 600px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+}
+.wpforms-field-label {
+color: #000;
+font-size: 16px;
+font-weight: 800;
+}
+/* Stil svih labela */
+form label {
+    font-weight: 800;
+    display: block;
+    margin-bottom: 6px;
+    font-size: 16px;
+    color: #000; 
+}
+/* Grupa za ime da se polja prikazuju u istom redu */
+.wpforms-field-row {
+    display: flex;
+    gap: 10px; /* Razmak između First i Last */
+    margin-bottom: 16px;
+	max-width: 100%;
+}
+.format-selected-first-last {
+    width: 60%;
+    min-width: 250px;
+	display: flex;
+    gap: 10px; /* Razmak između First i Last */
+    margin-bottom: 16px;
+	max-width: 100%;
+}
+.format-selected-first-last input {
+    width: 100%;
+    min-width: initial;
+	flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #000; 
+}
+.wpforms-first-name {
+	color: #555;
+	float: left;
+    width: calc(50% - 10px);
+}
+.wpforms-last-name {
+	color: #555;
+    float: right;
+    width: calc(50% - 10px);
+}
+/* Ostali inputi i textarea */
+input[type="email"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    color: black; /* crna boja teksta */
+}
+/* Textarea posebni stil */
+textarea {
+    height: 120px;
+    resize: vertical;
+}
+button#wpforms-submit-143 {
+    background-color: #fbd784;
+    color: #000;
+	font-weight: 800;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+button#wpforms-submit-143:hover {
+    background-color: #fbd784;
+}
+
+h1.contact-us {
+	color: #fbd784;
+	font-family: "DM Serif Display", sans-serif;
+    font-size: 60px;
+    line-height: 120%;
+    text-transform: capitalize;
+    font-weight: 600;
+	letter-spacing: 6px;
+    text-align: center;
+	margin-left: 15px;
+	margin-top: 50px;
+    margin-bottom: 100px;
+}
+h2.wp-block-heading.container {
+	font-size: 30px;
+	font-weight: 700;
+	letter-spacing: 6px;
+	text-transform: uppercase;
+}
+h3.wp-block-heading.container {
+	color:#fff;
+	font-size: 30px;
+    font-weight: 600;
+    font-family: "DM Serif Display", sans-serif;
+	line-height: 110%;
+	text-transform: capitalize;
+	letter-spacing: 1px;
+	margin-top: 30px;
+}
+p.container {
+	color:#fff;
+	font-size: 20px;
+    font-weight: 600;
+    margin-top: 30px;
+}
+iframe {
+	height:450px;
+	width: 100%;
+	border:0px;
+}
+form#wpforms-form-143 {
+    color: #fff;
+}
+

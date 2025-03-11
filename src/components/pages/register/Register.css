@@ -1,0 +1,113 @@
+.register-intro {
+	margin-top: 50px;
+	text-align: center;
+}
+.register-intro h1 {
+	color: var(--primary);
+	font-size: 30px;
+	font-weight: 800;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+	color: #fff; 
+}
+.register-intro h2 {
+	color: var(--primary);
+	font-size: 30px;
+	font-weight: 600;
+	font-family: "DM Serif Display", sans-serif;
+	color: #fff; 
+}
+.register-intro .group-register {
+	width: 760px;
+    margin-top: 0 px;
+	margin-bottom: 50px;
+}
+.register-form {
+	margin-top: 50px;
+}
+.register-form h3 {
+	color: #fbd784;
+	font-size: 30px;
+	font-weight: 600;
+	margin: 0.67em 0;
+}
+.register-form h4 {
+	color: #fff; 
+	font-size: 18px;
+	font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+.register-form label {
+	font-size: 20px;
+	font-weight: 600;
+	color: #fbd784;
+}
+.register-form input {
+	color: #000;
+	border-radius: 6px;
+	font-size: 16px;
+	line-height: 46px;
+	border: none;
+	padding: 0 12px;
+}
+.register-form input[type="checkbox"] {
+	display: inline;
+    width: auto;
+    vertical-align: middle;
+	margin-right: 10px;
+}
+.register-form input, .register-form label, register-form input[type="checkbox"], .register-form button, .form-control {
+	display: block;
+	width: 100%;
+}
+.register-form .checkbox {
+	font-size: 16px;
+	font-weight: 500;
+	color: #fff; 
+}
+.register-form .checkbox a {
+	font-size: 16px;
+	font-weight: 500;
+	color: #fff; 
+}
+.register-form p.sign-in {
+	font-size: 20px;
+	font-weight: 600;
+	color: #fff; 
+	text-align: center;
+	margin-top: 30px;
+}
+.register-form p.sign-in a {
+	font-size: 20px;
+	font-weight: 600;
+	color: #fbd784;
+	text-decoration: none;
+	margin-left: 10px;
+}
+.register-form button, .register-form button a {
+	background-color: #fff;
+	color: #fbd784;
+	border-radius: 90px;
+	font-size: 30px;
+    text-transform: uppercase;
+	letter-spacing: 4px;
+	text-decoration: none;
+    font-weight: 900;
+	padding: 11px 24px;
+	border: none;
+}
+.sign-in {
+    text-align: center;
+}
+.sign-in p {
+	margin-top:20px;
+    margin-bottom: 0px;
+}
+.sign-in a {
+    font-size: 22px;
+	font-weight: 600;
+    text-transform: uppercase;
+	color: #fbd784;
+	text-decoration: none;
+}

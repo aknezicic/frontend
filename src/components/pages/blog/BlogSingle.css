@@ -1,0 +1,43 @@
+
+.singlepost h1 {
+    text-align: center;
+    margin-top: 200px;
+    margin-bottom: 100px;
+    color: #fff;
+    max-width: 100%; 
+
+}
+.singlepost h2 {
+    color: #fbd784;
+    font-size: 22px;
+    line-height: 2;
+    font-weight: 800;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+}
+.singlepost p {
+    color: #fff;
+}
+.singlepost p.meta {
+    color:darkgrey;
+    font-size: 18px;
+    margin-bottom: 0px;
+}
+.singlepost img{
+    margin-top: 20px;
+    margin-bottom: 50px;
+    margin-left: 0px;
+}
+.singlepost a {
+    color: #fff;
+    text-decoration: underline;
+    text-decoration-color: #fbd784;
+    text-decoration-style: wavy;
+}
+.singlepost a:hover {
+    color: #fbd784;
+    text-decoration: none;
+}
+.singlepost span a {
+    text-decoration: none;
+}

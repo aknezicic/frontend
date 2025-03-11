@@ -1,0 +1,484 @@
+.shop {
+    padding: 50px 0;
+    background-color: #fff;
+    justify-content: center;
+    align-items: center;
+}
+.slide {
+    text-align: center;
+    padding: 50px 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.hero-title {
+    font-size: 40px;
+    color: #333;
+    text-transform: none;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    line-height: 2;
+    text-align: center;
+    margin: 50px auto; 
+}
+.hero-text {
+    font-size: 14px;
+    color: #777;
+    line-height: 1.6;
+    text-align: center;
+    max-width: 400px; /* Ograničavamo širinu da tekst bude u 2 reda */
+    margin: 0 auto 20px; /* Centrirano po širini */
+}
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 50px;
+}
+.button {
+    padding: 10px 20px;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+    border: 1px solid #333;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.button-dark {
+    background-color: #333;
+    color: white;
+}
+.button-light {
+    background-color: white;
+    color: #333;
+}
+.slick-dots {
+    bottom: 0px;
+}
+.slick-slider {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.shop .categories {
+    border-top: 2px solid #efefef;
+    border-bottom: 2px solid #efefef;
+    margin: 0 auto;
+    max-width: 1316px; 
+    overflow: hidden;
+}
+/* Stil svakog slajda */
+.shop .categorySlide {
+    padding: 0 10px; /* 10px sa svake strane = 20px razmaka između slajdova */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;  
+    background: #f5f5f5;
+    font-weight: bold;
+    text-align: center;
+    box-sizing: border-box;
+    margin: 0 5px;
+    white-space: nowrap;
+}
+/* Unutrašnji div sa pozadinskom slikom i centriranim tekstom */
+.shop .categoryName {
+    padding: 10px;
+}
+.shop .categoryName h1 {
+    background-image: url('https://placehold.co/400x300/EFEFEF/FFF');
+    background-size: cover;
+    background-position: center;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 140px;
+    border-radius: 10px;
+}
+/* Slick slider strelice */
+.shop .slick-prev:before, 
+.shop .slick-next:before {
+    color: #000;
+}
+/* Razmak iznad i ispod slajdera */
+.slick-list {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.slick-slide {
+    display: flex;
+    justify-content: center;
+}
+
+.beauty-carousel, .smartphones-carousel  {
+    margin-top: 50px;
+}
+.beauty-header, .smartphones-header  {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.beauty-header h2, .smartphones-header h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+.beauty-header h3, .smartphones-header h3 {
+    margin: 0;
+    font-size: 16px;
+    text-decoration: underline;
+    letter-spacing: 0;
+}
+.beauty-header h3 a, .smartphones-header h3 a {
+    text-decoration: underline;
+    color: #000;
+    font-weight: bold;
+}
+.beauty-header h3 a:hover, .smartphones-header h3 a:hover {
+    text-decoration: underline;
+}
+.beauty-carousel h2, .smartphones-carousel h2 {
+    color: #000;
+    text-align: left;
+    margin-bottom: 50px;
+    font-size: 24px;
+}
+.product-card {
+    min-height: 510px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: left;
+    box-sizing: border-box;
+}
+.product-image {
+    width: 100%;
+    
+    background-size: cover;
+    background-position: center;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.product-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.product-name {
+    color:#000;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    letter-spacing: 0;
+}
+.product-description {
+    font-size: 14px;
+    color: #555;
+    height: 80px;
+    flex-grow: 1;  /* Opis popunjava prostor, ali ne raste izvan granica */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 10px;
+}
+.product-price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #e91e63;
+    margin-top: auto;  /* Gura cijenu na dno kartice */
+}
+/* Razmak između kartica */
+.slick-slide {
+    padding: 0 10px;
+}
+.slick-list {
+    margin: 0 -10px;
+}
+.slick-prev {
+    left: -30px;
+}
+.slick-next {
+    right: -30px;
+}
+.slick-prev:before, .slick-next:before {
+    font-size: 30px;
+}
+.beauty-carousel .slick-dots, .smartphones-carousel .slick-dots {
+    bottom: -30px;
+}
+
+.promo-box {
+    max-width: 1316px;
+    width: 100%;        /* Da bude responzivan */
+    background-color: #f7f7f7; /* siva pozadina */
+    border-radius: 10px;
+    padding: 30px;
+    margin: 50px auto;  /* Ovo centrira box po sredini ekrana */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 400px; /* visinu prilagodi prema potrebi */
+    position: relative;
+}
+.promo-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    flex: 1;
+    text-align: left;
+    max-width: 50%;
+}
+.promo-title {
+    color:#000;
+    font-size: 34px;
+    font-weight: 900;
+    line-height: 2;
+    letter-spacing: 2;
+    text-transform: none;
+    margin: 0;
+}
+.promo-subtitle {
+    font-size: 18px;
+    margin: 5px 0 0;
+    color: #777;
+    text-transform: uppercase;
+}
+.promo-discount {
+    color: #000;
+    font-size: 60px;
+    font-weight: 900;
+}
+.promo-description {
+    font-size: 18px;
+    color: #555;
+    margin: 0;
+}
+.promo-link {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #000;
+    text-decoration: underline;
+}
+.promo-link:hover {
+    text-decoration: underline;
+}
+
+.promo-section {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 1316px;
+    margin: 50px auto;
+    padding: 0 15px;
+}
+.category-box {
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    padding: 30px;
+    flex: 1;
+    min-height: 200px; /* visinu prilagodi po potrebi */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    position: relative;
+}
+.category-link {
+    position: absolute;
+    bottom: 15px;
+    right: 10%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #000;
+    text-decoration: underline;
+}
+.category-link:hover {
+    text-decoration: underline;
+}
+@media (max-width: 768px) {
+    .promo-section {
+        flex-direction: column;
+    }
+    .category-box {
+        width: 100%;
+    }
+}
+
+.newsletter-section {
+    width: 100%;
+    background-color: #f7f7f7;
+    padding: 30px 0;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+.newsletter-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1316px;
+    width: 100%;
+    padding: 0 15px;
+    gap: 20px;
+}
+.newsletter-text {
+    max-width: 50%;
+}
+.newsletter-text h3 {
+    color:#000;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 0px;
+    text-transform: none;
+    margin: 0 0 10px;
+}
+.newsletter-text p {
+    font-size: 14px;
+    color: #666;
+    max-width: 350px;
+    margin: 0;
+}
+.newsletter-form {
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+    gap: 10px;
+}
+.newsletter-form input {
+    padding: 10px;
+    flex-grow: 1;
+    max-width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.newsletter-form button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 5px;
+}
+.newsletter-form button:hover {
+    background-color: #555;
+}
+@media (max-width: 768px) {
+    .newsletter-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .newsletter-text {
+        max-width: 100%;
+    }
+    .newsletter-form {
+        width: 100%;
+        justify-content: flex-start;
+    }
+    .newsletter-form input {
+        width: 100%;
+    }
+}
+
+.reviews-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 50px 0;
+    background-color: #fff;
+    margin-top: 50px;
+}
+.reviews-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+    max-width: 1316px;
+    width: 100%;
+    padding: 0 15px;
+}
+.rating-summary {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+}
+.rating-summary h3 {
+    color: #000;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.rating-summary .stars {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 5px;
+}
+.rating-summary p {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+.rating-summary a {
+    color: #000;
+    text-decoration: underline;
+}
+.review {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+.review .stars {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 5px;
+}
+.review h4 {
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+.review p {
+    font-size: 14px;
+    color: #666;
+    width: 200px;
+    margin: 0 0 10px;
+}
+.review span {
+    font-size: 12px;
+    color: #999;
+}
+@media (max-width: 768px) {
+    .reviews-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+
+
+
+
+
+
+
