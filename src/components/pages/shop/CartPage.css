@@ -18,6 +18,10 @@ td h4 {
 td img {
     width:44px;
 }
+td span {
+    color: #000;
+    font-size: 20px;
+}
 .cart a.btn.btn-success {
     color: #fff;
     background-color: #198754;
@@ -26,4 +30,5 @@ td img {
     font-size: 24px;
     font-weight: 800;
     margin-top: 20px;
+    width: 300px;
 }

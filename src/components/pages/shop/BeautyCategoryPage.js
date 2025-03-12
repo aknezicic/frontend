@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import './BeautyCategoryPage.css'; 
 
 const BeautyCategoryPage = () => {
@@ -11,6 +13,25 @@ const BeautyCategoryPage = () => {
             .catch(err => console.error('Error fetching beauty products:', err));
     }, []);
 
+    const addToCart = (product) => {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const productInCart = cart.find((item) => item.id === product.id);
+
+        if (productInCart) {
+            productInCart.quantity += 1;
+        } else {
+            cart.push({
+                id: product.id,
+                thumbnail: product.thumbnail,
+                title: product.title,
+                price: product.price,
+                quantity: 1,
+            });
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+    };
+
     return (
         <div className="beauty-category-page container">
             <h1>All Beauty Products</h1>
@@ -21,7 +42,10 @@ const BeautyCategoryPage = () => {
                         <div className="product-info">
                             <h3 className="product-name">{product.title}</h3>
                             <p className="product-description">{product.description}</p>
-                            <p className="product-price">{product.price} EUR</p>
+                            <div className="button-container">
+                                <p className="product-price"><strong>{product.price.toFixed(2)} EUR</strong></p>
+                                <button onClick={addToCart} className="btn btn-success cart-button"><FontAwesomeIcon icon={faShoppingCart} />Add to Cart</button>
+                            </div>
                         </div>
                     </div>
                 ))}

@@ -1,5 +1,17 @@
 .product-card {
-    min-height: 590px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: white;
+}
+.product-image {
+    flex-grow: 1; /* Omogućava da opis proizvoda popuni prazan prostor */
+    display: flex;
+    flex-direction: column;
 }
 .product-image .card-img {
     margin-top: 0px;
@@ -19,23 +31,32 @@
     text-align: justify;
     height: 140px;
     margin: 10px;
-    line-height: 1.2;
+    line-height: 1;
     overflow: hidden;
     text-overflow: ellipsis;
+    flex-grow: 1; /* Gura gumb i cijenu prema dolje */
 }
 .product-image button.btn {
-    margin-left: 10px;
     padding: 10px;
 }
 .button-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 10px;
+    margin-top: auto; /* Gura gumb i cijenu prema dnu */
+    width: 100%;
 }
-.product-price {
-    margin-left: 10px;
+.price-button {
+    flex: 1;
+    margin-right: 10px;
+    text-align: center;
 }
 .cart-button {
-    padding: 8px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa {
+    margin-right: 10px;
+}
+

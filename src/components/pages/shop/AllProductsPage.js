@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import {Link} from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import './AllProductsPage.css';
 import Pagination from '../blog/pagination/Pagination';  
 
@@ -56,6 +59,25 @@ const AllProductsPage = () => {
         }
     };
 
+    const addToCart = (product) => {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const productInCart = cart.find((item) => item.id === product.id);
+
+        if (productInCart) {
+            productInCart.quantity += 1;
+        } else {
+            cart.push({
+                id: product.id,
+                thumbnail: product.thumbnail,
+                title: product.title,
+                price: product.price,
+                quantity: 1,
+            });
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+    };
+
     return (
         <div className="all-products-page container">
             <h1 className="page-title">All Products</h1>
@@ -67,10 +89,17 @@ const AllProductsPage = () => {
                     <div className="products-grid">
                         {currentProducts.map(product => (
                             <div key={product.id} className="product-card">
-                                <img src={product.thumbnail} alt={product.title} className="product-image" />
-                                <h2 className="product-name">{product.title}</h2>
+                                <Link to={'/shop/' + product.id}>
+                                    <img src={product.thumbnail} alt={product.title} className="product-image" />
+                                </Link>
+                                <Link to={'/shop/' + product.id}>
+                                    <h2 className="product-name">{product.title}</h2>
+                                </Link>
                                 <p className="product-description">{product.description}</p>
-                                <p className="product-price">{product.price} EUR</p>
+                                <p className="product-price">{product.price.toFixed(2)} EUR</p>
+                                <button onClick={() => addToCart(product)} className="btn btn-success">
+                                    <FontAwesomeIcon icon={faShoppingCart} /> Add to Cart
+                                </button>
                             </div>
                         ))}
                     </div>

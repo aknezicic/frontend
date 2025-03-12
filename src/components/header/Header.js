@@ -40,6 +40,13 @@ const Header = () => {
 								<Link className="navbar-brand" to="/"></Link>
 								<Link className="nav-link-logo" to="/">MNTN</Link>
 							</li>
+
+							<li className="nav-item">
+								<Link className="nav-link" to="/Aboutus">About us</Link>
+							</li>
+							<li className="nav-item">
+								<Link className="nav-link" to="/contact">Contact</Link>
+							</li>
 							<li className="nav-item">
 								<Link className="nav-link" to="/equipment">Equipment</Link>
 							</li>
@@ -53,11 +60,9 @@ const Header = () => {
 								<Link className="nav-link" to="/shop">Shop</Link>
 							</li>
 							<li className="nav-item">
-								<Link className="nav-link" to="/Aboutus">About us</Link>
+								<Link className="nav-link" to="/cart">Cart</Link>
 							</li>
-							<li className="nav-item">
-								<Link className="nav-link" to="/contact">Contact</Link>
-							</li>
+							
 							<li className="nav-item ms-auto">
 								<div className="login">
 									{username ? (

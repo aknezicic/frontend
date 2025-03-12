@@ -14,6 +14,9 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
+} 
+.products-grid .product-card {
+    width: 250px;  /* POSTAVLJA FIKSNU ŠIRINU KARTICE */
 }
 .product-card {
     height: 100%;
@@ -39,6 +42,9 @@
     font-size: 18px;
     font-weight: bold;
     margin: 8px 0;
+}
+.product-card a {
+    text-decoration: none;
 }
 .product-price {
     color: #555;
