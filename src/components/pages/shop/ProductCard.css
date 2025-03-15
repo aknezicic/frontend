@@ -59,4 +59,10 @@
 svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa {
     margin-right: 10px;
 }
+.cart-notification, .cart-notification a  {
+    color: #e91e63;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
 

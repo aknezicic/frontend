@@ -16,7 +16,7 @@
     gap: 20px;
 } 
 .products-grid .product-card {
-    width: 250px;  /* POSTAVLJA FIKSNU ŠIRINU KARTICE */
+    width: 300px;  /* POSTAVLJA FIKSNU ŠIRINU KARTICE */
 }
 .product-card {
     height: 100%;

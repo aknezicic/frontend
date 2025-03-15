@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 
 const MediaImg = ({ id, size }) => {
     const [image, setImage] = useState(null);
+    const REACT_APP_URL = process.env.REACT_APP_URL;
 
     useEffect(() => {
         if (!id) return; // Ako nema ID-a slike, prekini učitavanje
 
-        fetch(`https://frontend.internetskimarketing.eu/backend/wp-json/wp/v2/media/${id}`)
+        fetch(REACT_APP_URL + `wp-json/wp/v2/media/${id}`)
             .then(response => response.json())
             .then(data => {
                 console.log("Fetched media data:", data); // 🛠 Provjera API odgovora
@@ -28,7 +29,7 @@ const MediaImg = ({ id, size }) => {
                 console.error("Greška pri učitavanju slike:", error);
                 setImage("/images/default-image.jpg"); // Prikaži default sliku ako dođe do greške
             });
-    }, [id, size]);
+    }, [id, size, REACT_APP_URL]);
 
     if (!image) {
         return <p>Loading</p>;

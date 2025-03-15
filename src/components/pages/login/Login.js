@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const navigate = useNavigate();
+  const REACT_APP_URL = process.env.REACT_APP_URL;
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
@@ -36,7 +37,7 @@ const Login = () => {
     setError("");
     setIsLoading(true);
 
-    fetch("https://frontend.internetskimarketing.eu/backend/wp-json/jwt-auth/v1/token", {
+    fetch(REACT_APP_URL + "wp-json/jwt-auth/v1/token", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

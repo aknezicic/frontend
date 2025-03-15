@@ -1,8 +1,8 @@
 .checkout {
-    max-width: 600px;
+    max-width: 1000px;
     margin: auto;
     padding: 20px;
-    text-align: center;
+    text-align: left;
 }
 .checkout h1 {
     color: #fff;
@@ -27,6 +27,7 @@
     background-color: #fff;
     color: #e91e63;
     letter-spacing: 0px;
+    text-align: center;
 }   
 .checkout-form input {
     width: 100%;

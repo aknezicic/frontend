@@ -10,13 +10,14 @@ const BlogSingle = () => {
 
     const{id} = useParams();
     const [post, setPost] = useState(null);
+    const REACT_APP_URL = process.env.REACT_APP_URL;
     
     useEffect(
         () => {
-            fetch('https://frontend.internetskimarketing.eu/backend/wp-json/wp/v2/posts?slug=' + id)
+            fetch(REACT_APP_URL + 'wp-json/wp/v2/posts?slug=' + id)
             .then(response => response.json())
             .then(data => setPost(data[0]))
-         }, [id]
+         }, [id, REACT_APP_URL]
     );
 
     if(!post) return <p>Loading...</p>;

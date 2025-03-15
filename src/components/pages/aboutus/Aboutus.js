@@ -7,9 +7,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './Aboutus.css';
 
-
-
 const Aboutus = () => {
+    const REACT_APP_URL = process.env.REACT_APP_URL;
 
     var settings = {
         dots: true,
@@ -24,10 +23,10 @@ const Aboutus = () => {
     
         useEffect(
             () => {
-                fetch('https://frontend.internetskimarketing.eu/backend/wp-json/wp/v2/pages/185')
+                fetch(REACT_APP_URL + 'wp-json/wp/v2/pages/185')
                 .then(response => response.json())
                 .then(data => setData(data))
-            }, []
+            }, [REACT_APP_URL]
         );
             
         if(!data) return <p>Loading...</p>   

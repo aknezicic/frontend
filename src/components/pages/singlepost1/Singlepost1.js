@@ -1,8 +1,13 @@
-
-import React from "react"
+import React, { useEffect } from "react";
 import './Singlepost1.css';
 
 const Singlepost1 = () => {
+    
+    // Pomicanje na vrh stranice prilikom učitavanja stranice
+    useEffect(() => {
+        window.scrollTo(0, 0);  // Pomakni na vrh stranice
+    }, []); // Ovaj useEffect se poziva samo jednom pri prvom renderiranju
+
     return(
     <>
         <body className="body-single-post">

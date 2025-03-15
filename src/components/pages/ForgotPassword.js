@@ -7,6 +7,7 @@ const ForgotPassword = () => {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const REACT_APP_URL = process.env.REACT_APP_URL;
 
   const handleChange = (e) => {
     setEmail(e.target.value);
@@ -18,7 +19,7 @@ const ForgotPassword = () => {
     setError("");
     setIsLoading(true);
 
-    fetch("https://frontend.internetskimarketing.eu/backend/wp-json/custom/v1/reset-password", {
+    fetch(REACT_APP_URL + "wp-json/custom/v1/reset-password", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

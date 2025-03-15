@@ -12,16 +12,17 @@ const AuthorPosts = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
     const postsPerPage = 5; 
+    const REACT_APP_URL = process.env.REACT_APP_URL;
 
     useEffect(() => {
-        fetch(`https://frontend.internetskimarketing.eu/backend/wp-json/wp/v2/users/${authorID}`)
+        fetch(REACT_APP_URL + `wp-json/wp/v2/users/${authorID}`)
             .then(response => response.json())
             .then(data => setAuthor(data))
             .catch(error => console.error("Error retrieving author:", error));
-    }, [authorID]);
+    }, [authorID, REACT_APP_URL]);
 
     useEffect(() => {
-        fetch(`https://frontend.internetskimarketing.eu/backend/wp-json/wp/v2/posts?author=${authorID}&page=${currentPage}&per_page=${postsPerPage}`)
+        fetch(REACT_APP_URL + `/wp-json/wp/v2/posts?author=${authorID}&page=${currentPage}&per_page=${postsPerPage}`)
             .then(response => {
                 const totalPagesFromHeader = response.headers.get("X-WP-TotalPages");
                 if (totalPagesFromHeader) {
@@ -31,7 +32,12 @@ const AuthorPosts = () => {
             })
             .then(data => setPosts(data))
             .catch(error => console.error("Error retrieving posts:", error));
-    }, [authorID, currentPage]);
+    }, [authorID, currentPage, REACT_APP_URL]);
+
+    // Pomakni se na vrh stranice kada se promijeni stranica
+        useEffect(() => {
+            window.scrollTo(0, 0);  // Pomakni na vrh stranice
+        }, [currentPage]);  // Aktivira se svaki put kada se promijeni currentPage
 
     if (!author) return <p>Loading author...</p>;
 

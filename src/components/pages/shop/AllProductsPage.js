@@ -9,6 +9,7 @@ const AllProductsPage = () => {
     const [products, setProducts] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [loading, setLoading] = useState(true);
+    const [addedToCart, setAddedToCart] = useState(false);
 
     const productsPerPage = 12; 
 
@@ -37,6 +38,11 @@ const AllProductsPage = () => {
 
         fetchAllProducts();
     }, []);
+
+    // Pomakni se na vrh stranice kada se promijeni stranica
+        useEffect(() => {
+            window.scrollTo(0, 0);  // Pomakni na vrh stranice
+        }, [currentPage]);  // Aktivira se svaki put kada se promijeni currentPage
 
     // Ukupan broj stranica
     const totalPages = Math.ceil(products.length / productsPerPage);
@@ -76,6 +82,11 @@ const AllProductsPage = () => {
         }
 
         localStorage.setItem("cart", JSON.stringify(cart));
+
+        setAddedToCart(true);
+        setTimeout(() => {
+            setAddedToCart(false);
+        }, 5000);
     };
 
     return (
@@ -97,9 +108,13 @@ const AllProductsPage = () => {
                                 </Link>
                                 <p className="product-description">{product.description}</p>
                                 <p className="product-price">{product.price.toFixed(2)} EUR</p>
-                                <button onClick={() => addToCart(product)} className="btn btn-success">
-                                    <FontAwesomeIcon icon={faShoppingCart} /> Add to Cart
-                                </button>
+                                <button onClick={() => addToCart(product)} className="btn btn-success"><FontAwesomeIcon icon={faShoppingCart} /> Add to Cart</button>
+                                {addedToCart && (
+                                    <div className="cart-notification">
+                                        ✅ Product added to cart!
+                                        <p><Link to="/cart">Look at the cart</Link></p>
+                                    </div>
+                                )}
                             </div>
                         ))}
                     </div>

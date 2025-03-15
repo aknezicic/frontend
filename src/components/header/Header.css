@@ -38,7 +38,6 @@
     overflow: hiden;
 }
 
-
 .navbar-nav {
 	width: 100%;
     margin-right: auto;
@@ -98,6 +97,14 @@ img svg {
 	font-weight: 600;
 	padding: 11px 24px;
 	border: none;
+}
+
+header {
+	position: relative;
+    z-index: 999;
+}
+.nav-link:focus, .nav-link:hover {
+	color:#fbd784;
 }
 
 

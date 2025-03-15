@@ -11,11 +11,26 @@ const CheckoutPage = () => {
 
     useEffect(() => {
         const localCart = JSON.parse(localStorage.getItem("cart")) || [];
-        setCart(localCart);
+
+        // Filtriramo nevalidne podatke kako bismo izbegli greške
+        const validCart = localCart.filter(
+            (item) =>
+                item &&
+                typeof item.price === "number" &&
+                typeof item.quantity === "number"
+        );
+
+        setCart(validCart);
     }, []);
 
     const totalPrice = () => {
-        return cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
+        return cart
+            .reduce(
+                (total, item) =>
+                    total + ((item.price ?? 0) * (item.quantity ?? 1)),
+                0
+            )
+            .toFixed(2);
     };
 
     const handleChange = (e) => {
@@ -26,11 +41,9 @@ const CheckoutPage = () => {
         e.preventDefault();
         console.log("Order placed:", formData, cart);
 
-        // Ovdje možeš dodati API poziv za slanje narudžbe
-
         alert("Order placed successfully!");
-        localStorage.removeItem("cart"); // Brišemo košaricu nakon kupnje
-        setCart([]); // Ažuriramo state
+        localStorage.removeItem("cart");
+        setCart([]);
     };
 
     return (
@@ -44,6 +57,7 @@ const CheckoutPage = () => {
                     <table className="table">
                         <thead>
                             <tr>
+                                <th></th>
                                 <th>Product</th>
                                 <th>Quantity</th>
                                 <th>Price</th>
@@ -52,9 +66,10 @@ const CheckoutPage = () => {
                         <tbody>
                             {cart.map((item) => (
                                 <tr key={item.id}>
+                                    <td></td>
                                     <td>{item.title}</td>
                                     <td>{item.quantity}</td>
-                                    <td>{item.price.toFixed(2)} EUR</td>
+                                    <td>{(item.price ?? 0).toFixed(2)} EUR</td>
                                 </tr>
                             ))}
                         </tbody>
@@ -62,10 +77,33 @@ const CheckoutPage = () => {
                     <h3>Total: {totalPrice()} EUR</h3>
 
                     <form onSubmit={handleSubmit} className="checkout-form">
-                        <input type="text" name="name" placeholder="Full Name" value={formData.name} onChange={handleChange} required />
-                        <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} required />
-                        <input type="text" name="address" placeholder="Address" value={formData.address} onChange={handleChange} required />
-                        <button type="submit" className="btn btn-success">Place Order</button>
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="Full Name"
+                            value={formData.name}
+                            onChange={handleChange}
+                            required
+                        />
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            required
+                        />
+                        <input
+                            type="text"
+                            name="address"
+                            placeholder="Address"
+                            value={formData.address}
+                            onChange={handleChange}
+                            required
+                        />
+                        <button type="submit" className="btn btn-success">
+                            Place Order
+                        </button>
                     </form>
                 </>
             )}

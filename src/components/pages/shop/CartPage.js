@@ -7,11 +7,14 @@ const CartPage = () => {
 
     useEffect(() => {
         const localCart = JSON.parse(localStorage.getItem('cart')) || [];
-        setCart(localCart);
+        const validCart = localCart.filter(item => item && typeof item.price === "number" && typeof item.quantity === "number");
+        setCart(validCart);
     }, []);
 
+    console.log("Cart contents:", cart); // Debugging
+
     const totalPrice = () => {
-        return cart.reduce((total, item) => total + (item.price * item.quantity), 0).toFixed(2);
+        return cart.reduce((total, item) => total + ((item.price ?? 0) * (item.quantity ?? 1)), 0).toFixed(2);
     };
 
     const removeItem = (id) => {
@@ -23,11 +26,11 @@ const CartPage = () => {
     const updateQuantity = (id, change) => {
         const updatedCart = cart.map(item => {
             if (item.id === id) {
-                const newQuantity = item.quantity + change;
-                return newQuantity > 0 ? { ...item, quantity: newQuantity } : null;
+                const newQuantity = Math.max(item.quantity + change, 1); // Sprečava količinu ispod 1
+                return { ...item, quantity: newQuantity };
             }
             return item;
-        }).filter(item => item !== null); // Uklanja proizvode s količinom 0
+        });
 
         localStorage.setItem('cart', JSON.stringify(updatedCart));
         setCart(updatedCart);
@@ -56,14 +59,15 @@ const CartPage = () => {
                                 <td></td>
                                 <td><img src={item.thumbnail} alt={item.title} width="44" /></td>
                                 <td><strong>{item.title}</strong></td>
-                                <td><strong>
-                                    <button onClick={() => updateQuantity(item.id, -1)}>-</button>
-                                    <span style={{ margin: "0 10px" }}>{item.quantity}</span>
-                                    <button onClick={() => updateQuantity(item.id, 1)}>+</button>
+                                <td>
+                                    <strong>
+                                        <button onClick={() => updateQuantity(item.id, -1)}>-</button>
+                                        <span style={{ margin: "0 10px" }}>{item.quantity}</span>
+                                        <button onClick={() => updateQuantity(item.id, 1)}>+</button>
                                     </strong>
                                 </td>
-                                <td><span>{item.price.toFixed(2)} EUR</span></td>
-                                <td><span>{(item.price * item.quantity).toFixed(2)} EUR</span></td>
+                                <td><span>{(item.price ?? 0).toFixed(2)} EUR</span></td>
+                                <td><span>{((item.price ?? 0) * (item.quantity ?? 1)).toFixed(2)} EUR</span></td>
                                 <td><button onClick={() => removeItem(item.id)}>X</button></td>
                             </tr>
                         ))}
@@ -71,7 +75,7 @@ const CartPage = () => {
                     <tfoot>
                         <tr>
                             <td colSpan="5"><h4>Total price:</h4></td>
-                            <td colSpan="2"><strong>{totalPrice()} EUR</strong></td>
+                            <td colSpan="2"><h4>{totalPrice()} EUR</h4></td>
                         </tr>
                     </tfoot>
                 </table>

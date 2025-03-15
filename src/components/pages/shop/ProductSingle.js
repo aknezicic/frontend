@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import {Link} from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import "./ProductSingle.css";
@@ -8,6 +9,7 @@ const ProductSingle = () => {
     const { id } = useParams(); // Dohvaćamo ID proizvoda iz URL-a
     const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [addedToCart, setAddedToCart] = useState(false);
 
     useEffect(() => {
         const fetchProduct = async () => {
@@ -43,6 +45,11 @@ const ProductSingle = () => {
         }
 
         localStorage.setItem("cart", JSON.stringify(cart));
+
+        setAddedToCart(true);
+        setTimeout(() => {
+            setAddedToCart(false);
+        }, 5000);
     };
 
     if (loading) return <p>Loading...</p>;
@@ -57,6 +64,12 @@ const ProductSingle = () => {
                 <p>{product.description}</p>
                 <h3><strong>{product.price.toFixed(2)} EUR</strong></h3>
                 <button onClick={addToCart} className="btn btn-success"><FontAwesomeIcon icon={faShoppingCart} /> Add to Cart</button>
+                {addedToCart && (
+                    <div className="cart-notification">
+                        ✅ Product added to cart!
+                        <p><Link to="/cart">Look at the cart</Link></p>
+                    </div>
+                )}
             </div>
         </div>
     );

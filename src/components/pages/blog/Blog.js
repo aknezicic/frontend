@@ -13,17 +13,18 @@ const Blog = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
     const postsPerPage = 5; // Broj postova po stranici
+    const REACT_APP_URL = process.env.REACT_APP_URL;
 
     // Dohvati kategorije
     useEffect(() => {
-        fetch('https://frontend.internetskimarketing.eu/backend/wp-json/wp/v2/categories')
+        fetch(REACT_APP_URL + 'wp-json/wp/v2/categories')
             .then(response => response.json())
             .then(data => setCategories(data));
-    }, []);
+    }, [REACT_APP_URL]);
 
     // Dohvati postove
     useEffect(() => {
-        let url = `https://frontend.internetskimarketing.eu/backend/wp-json/wp/v2/posts?author=20&page=${currentPage}&per_page=${postsPerPage}`;
+        let url = REACT_APP_URL + `wp-json/wp/v2/posts?author=20&page=${currentPage}&per_page=${postsPerPage}`;
         if (category) {
             url += `&categories=${category}`;
         }
@@ -37,7 +38,12 @@ const Blog = () => {
                 return response.json();
             })
             .then(data => setPosts(data));
-    }, [currentPage, category]);
+    }, [currentPage, category, REACT_APP_URL]);
+
+    // Pomakni se na vrh stranice kada se promijeni stranica
+    useEffect(() => {
+        window.scrollTo(0, 0);  // Pomakni na vrh stranice
+    }, [currentPage]);  // Aktivira se svaki put kada se promijeni currentPage
 
     const prevPage = () => {
         if (currentPage > 1) setCurrentPage(currentPage - 1);

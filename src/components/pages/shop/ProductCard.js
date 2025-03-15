@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Link} from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import './ProductCard.css'; 
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, onAddToCart }) => {
+
+    const [addedToCart, setAddedToCart] = useState(false);
 
     const addToCart = () => {
 
@@ -29,6 +31,11 @@ const ProductCard = ({ product }) => {
     }
 
         localStorage.setItem('cart', JSON.stringify(cart));
+
+        setAddedToCart(true);
+        setTimeout(() => {
+            setAddedToCart(false);
+        }, 5000);
     }
 
     return (
@@ -45,6 +52,12 @@ const ProductCard = ({ product }) => {
                 <div className="button-container">
                     <p className="product-price"><strong>{product.price.toFixed(2)} EUR</strong></p>
                     <button onClick={addToCart} className="btn btn-success cart-button"><FontAwesomeIcon icon={faShoppingCart} />Add to Cart</button>
+                    {addedToCart && (
+                    <div className="cart-notification">
+                        ✅ Product added to cart!
+                        <p><Link to="/cart">Look at the cart</Link></p>
+                    </div>
+                    )}
                 </div>
             </div>
         </div>
