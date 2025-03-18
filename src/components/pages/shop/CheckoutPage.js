@@ -147,7 +147,7 @@ const CheckoutPage = () => {
                         <h2 className="mb-3">Payment</h2>
                         <div className="my-3">
                             <div className="form-check">
-                                <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked="" required="" />
+                                <input id="credit" name="paymentMethod" type="radio" class="form-check-input" required="" />
                                 <label className="form-check-label" for="credit">Credit card</label>
                             </div>
                             <div className="form-check">

@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import {Link} from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import './AllProductsPage.css';
 import Pagination from '../blog/pagination/Pagination';  
+import ProductCard from './ProductCard'; // Ispravan import
 
 const AllProductsPage = () => {
     const [products, setProducts] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [loading, setLoading] = useState(true);
-    const [addedToCart, setAddedToCart] = useState(false);
 
     const productsPerPage = 12; 
 
@@ -39,20 +36,15 @@ const AllProductsPage = () => {
         fetchAllProducts();
     }, []);
 
-    // Pomakni se na vrh stranice kada se promijeni stranica
-        useEffect(() => {
-            window.scrollTo(0, 0);  // Pomakni na vrh stranice
-        }, [currentPage]);  // Aktivira se svaki put kada se promijeni currentPage
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [currentPage]);
 
-    // Ukupan broj stranica
     const totalPages = Math.ceil(products.length / productsPerPage);
-
-    // Proizvodi za trenutnu stranicu
     const indexOfLastProduct = currentPage * productsPerPage;
     const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
     const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
 
-    // Funkcije za paginaciju
     const nextPage = () => {
         if (currentPage < totalPages) {
             setCurrentPage(currentPage + 1);
@@ -82,11 +74,6 @@ const AllProductsPage = () => {
         }
 
         localStorage.setItem("cart", JSON.stringify(cart));
-
-        setAddedToCart(true);
-        setTimeout(() => {
-            setAddedToCart(false);
-        }, 5000);
     };
 
     return (
@@ -100,26 +87,11 @@ const AllProductsPage = () => {
                     <div className="products-grid">
                         {currentProducts.map(product => (
                             <div key={product.id} className="product-card">
-                                <Link to={'/shop/' + product.id}>
-                                    <img src={product.thumbnail} alt={product.title} className="product-image" />
-                                </Link>
-                                <Link to={'/shop/' + product.id}>
-                                    <h2 className="product-name">{product.title}</h2>
-                                </Link>
-                                <p className="product-description">{product.description}</p>
-                                <p className="product-price">{product.price.toFixed(2)} EUR</p>
-                                <button onClick={() => addToCart(product)} className="btn btn-success"><FontAwesomeIcon icon={faShoppingCart} /> Add to Cart</button>
-                                {addedToCart && (
-                                    <div className="cart-notification">
-                                        ✅ Product added to cart!
-                                        <p><Link to="/cart">Look at the cart</Link></p>
-                                    </div>
-                                )}
+                                <ProductCard product={product} addToCart={addToCart} />
                             </div>
                         ))}
                     </div>
 
-                    {/* Dodavanje Pagination komponente sa potrebnim props */}
                     <Pagination
                         currentPage={currentPage}
                         totalPages={totalPages}
