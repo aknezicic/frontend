@@ -75,13 +75,22 @@ const CheckoutPage = () => {
                         </tbody>
                     </table>
                     <h3>Total: {totalPrice()} EUR</h3>
-
+                    <hr className="my-4"></hr>
+                    <h2 className="mb-3">Billing address</h2>
                     <form onSubmit={handleSubmit} className="checkout-form">
                         <input
                             type="text"
                             name="name"
                             placeholder="Full Name"
                             value={formData.name}
+                            onChange={handleChange}
+                            required
+                        />
+                        <input
+                            type="username"
+                            name="username"
+                            placeholder="Username"
+                            value={formData.username}
                             onChange={handleChange}
                             required
                         />
@@ -101,9 +110,64 @@ const CheckoutPage = () => {
                             onChange={handleChange}
                             required
                         />
-                        <button type="submit" className="btn btn-success">
-                            Place Order
-                        </button>
+                        <input
+                            type="text"
+                            name="country"
+                            placeholder="Country"
+                            value={formData.country}
+                            onChange={handleChange}
+                            required
+                        />
+                        <hr className="my-4"></hr>
+                        <div className="form-check">
+                            <input type="checkbox" className="form-check-input" id="same-address" />
+                            <label className="form-check-label" for="same-address">Shipping address is the same as my billing address</label>
+                        </div>
+                        <div className="form-check">
+                            <input type="checkbox" className="form-check-input" id="save-info" />
+                            <label className="form-check-label" for="save-info">Save this information for next time</label>
+                        </div>
+                        <hr className="my-4"></hr>
+                        <h2 className="mb-3">Payment</h2>
+                        <div className="my-3">
+                            <div className="form-check">
+                                <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked="" required="" />
+                                <label className="form-check-label" for="credit">Credit card</label>
+                            </div>
+                            <div className="form-check">
+                                <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required="" />
+                                <label className="form-check-label" for="debit">Debit card</label>
+                            </div>
+                            <div className="form-check">
+                                <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required="" />
+                                <label className="form-check-label" for="paypal">PayPal</label>
+                            </div>
+                        </div>
+                        <div className="row gy-3">
+                            <div className="col-md-6">
+                                <label for="cc-name" className="form-label">Name on card</label>
+                                <input type="text" className="form-control" id="cc-name" placeholder="" required="" />
+                                <small className="text-muted">Full name as displayed on card</small>
+                                <div className="invalid-feedback">Name on card is required</div>
+                            </div>
+                            <div className="col-md-6">
+                                <label for="cc-number" className="form-label">Credit card number</label>
+                                <input type="text" className="form-control" id="cc-number" placeholder="" required="" />
+                                <div className="invalid-feedback">Credit card number is required</div>
+                            </div>
+                            <div className="col-md-3">
+                                <label for="cc-expiration" className="form-label">Expiration</label>
+                                <input type="text" className="form-control" id="cc-expiration" placeholder="" required="" />
+                                <div class="invalid-feedback">Expiration date required</div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="cc-cvv" className="form-label">CVV</label>
+                                <input type="text" className="form-control" id="cc-cvv" placeholder="" required="" />
+                                <div className="invalid-feedback">Security code required</div>
+                            </div>
+                        </div>
+                        <hr className="my-4"></hr>
+                        <button type="submit" className="btn btn-success">Continue to checkout</button>
                     </form>
                 </>
             )}
