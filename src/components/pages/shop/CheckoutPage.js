@@ -112,6 +112,22 @@ const CheckoutPage = () => {
                         />
                         <input
                             type="text"
+                            name="postalCode"
+                            placeholder="Postal Code"
+                            value={formData.postalCode}
+                            onChange={handleChange}
+                            required
+                        />
+                        <input
+                            type="text"
+                            name="city"
+                            placeholder="City"
+                            value={formData.city}
+                            onChange={handleChange}
+                            required
+                        />
+                        <input
+                            type="text"
                             name="country"
                             placeholder="Country"
                             value={formData.country}
@@ -168,6 +184,7 @@ const CheckoutPage = () => {
                         </div>
                         <hr className="my-4"></hr>
                         <button type="submit" className="btn btn-success">Continue to checkout</button>
+                        <hr className="my-4"></hr>
                     </form>
                 </>
             )}
