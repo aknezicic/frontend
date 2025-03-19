@@ -22,7 +22,7 @@ const AuthorPosts = () => {
     }, [authorID, REACT_APP_URL]);
 
     useEffect(() => {
-        fetch(REACT_APP_URL + `/wp-json/wp/v2/posts?author=${authorID}&page=${currentPage}&per_page=${postsPerPage}`)
+        fetch(REACT_APP_URL + `/wp-json/wp/v2/posts?author=${authorID}&page=${currentPage}&per_page=${postsPerPage}&order=asc`)
             .then(response => {
                 const totalPagesFromHeader = response.headers.get("X-WP-TotalPages");
                 if (totalPagesFromHeader) {

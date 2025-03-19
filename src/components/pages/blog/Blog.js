@@ -24,7 +24,7 @@ const Blog = () => {
 
     // Dohvati postove
     useEffect(() => {
-        let url = REACT_APP_URL + `wp-json/wp/v2/posts?author=20&page=${currentPage}&per_page=${postsPerPage}`;
+        let url = REACT_APP_URL + `wp-json/wp/v2/posts?author=20&page=${currentPage}&per_page=${postsPerPage}&order=asc`;
         if (category) {
             url += `&categories=${category}`;
         }

@@ -3,7 +3,7 @@
 	font-family: "DM Serif Display", sans-serif;
     font-size: 60px;
     line-height: 120%;
-    text-transform: capitalize;
+    text-transform: none;
     display: block;
     font-weight: 600;
 	letter-spacing: 6px;

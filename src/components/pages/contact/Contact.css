@@ -128,4 +128,7 @@ iframe {
 form#wpforms-form-143 {
     color: #fff;
 }
+input#wpforms-143-field_1, input#wpforms-143-field_1-last {
+    width: 275px;
+}
 
