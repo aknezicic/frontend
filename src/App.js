@@ -30,6 +30,7 @@ import CheckoutPage from './components/pages/shop/CheckoutPage';
 import AllProductsPage from './components/pages/shop/AllProductsPage';
 import BeautyCategoryPage from './components/pages/shop/BeautyCategoryPage';
 import SmartphonesCategoryPage from './components/pages/shop/SmartphonesCategoryPage';
+import QRCode from './components/pages/shop/QRCode';
 import Footer from './components/footer/Footer';
 import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
 
@@ -69,6 +70,7 @@ function App() {
             <Route path="/shop/:id" element={<ProductSingle />} />
             <Route path="/cart" element={<CartPage />} />
             <Route path="/checkout" element={<CheckoutPage />} />
+            <Route path="/qrcode" element={<QRCode />} />
           </Routes>
         <Footer />
       </div>

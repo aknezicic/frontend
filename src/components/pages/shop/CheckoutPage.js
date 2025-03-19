@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import QRCode from "./QRCode";
 import "./CheckoutPage.css";
 
 const CheckoutPage = () => {
@@ -7,10 +8,12 @@ const CheckoutPage = () => {
         name: "",
         email: "",
         address: "",
+        city: "",
     });
 
     useEffect(() => {
         const localCart = JSON.parse(localStorage.getItem("cart")) || [];
+        setCart(localCart);
 
         // Filtriramo nevalidne podatke kako bismo izbegli greške
         const validCart = localCart.filter(
@@ -18,7 +21,7 @@ const CheckoutPage = () => {
                 item &&
                 typeof item.price === "number" &&
                 typeof item.quantity === "number"
-        );
+        ); 
 
         setCart(validCart);
     }, []);
@@ -40,7 +43,6 @@ const CheckoutPage = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log("Order placed:", formData, cart);
-
         alert("Order placed successfully!");
         localStorage.removeItem("cart");
         setCart([]);
@@ -186,6 +188,9 @@ const CheckoutPage = () => {
                         <button type="submit" className="btn btn-success">Continue to checkout</button>
                         <hr className="my-4"></hr>
                     </form>
+
+                    {/* Prikaz QR koda nakon popunjavanja forme */}
+                    <QRCode formData={formData} cart={cart} />
                 </>
             )}
         </div>
