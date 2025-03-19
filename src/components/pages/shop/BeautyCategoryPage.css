@@ -3,16 +3,19 @@
     background-color: #fff;
 }
 .beauty-category-page h1 {
+    color: #000;
     font-size: 28px;
     margin-bottom: 30px;
     text-align: left;
 }
-.product-grid {
+.beauty-category-page .products-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
-.product-card {
+.beauty-category-page .product-card {
+    width: 400px;
+    height: 700px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -24,7 +27,7 @@
     overflow: hidden;
     transition: transform 0.3s ease;
     }
-.product-card:hover {
+.beauty-category-page .product-card:hover {
     transform: translateY(-5px);
 }
 .product-image {

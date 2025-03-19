@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './AllProductsPage.css';
 import Pagination from '../blog/pagination/Pagination';  
-import ProductCard from './ProductCard'; // Ispravan import
+import ProductCard from './ProductCard'; 
 
 const AllProductsPage = () => {
     const [products, setProducts] = useState([]);
