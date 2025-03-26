@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import QRCode from "./QRCode";
+import { useNavigate } from "react-router-dom";
 import "./CheckoutPage.css";
 
 const CheckoutPage = () => {
@@ -9,30 +9,20 @@ const CheckoutPage = () => {
         email: "",
         address: "",
         city: "",
+        postalCode: "",
+        country: "",
     });
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         const localCart = JSON.parse(localStorage.getItem("cart")) || [];
         setCart(localCart);
-
-        // Filtriramo nevalidne podatke kako bismo izbegli greške
-        const validCart = localCart.filter(
-            (item) =>
-                item &&
-                typeof item.price === "number" &&
-                typeof item.quantity === "number"
-        ); 
-
-        setCart(validCart);
     }, []);
 
     const totalPrice = () => {
         return cart
-            .reduce(
-                (total, item) =>
-                    total + ((item.price ?? 0) * (item.quantity ?? 1)),
-                0
-            )
+            .reduce((total, item) => total + ((item.price ?? 0) * (item.quantity ?? 1)), 0)
             .toFixed(2);
     };
 
@@ -42,12 +32,23 @@ const CheckoutPage = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("Order placed:", formData, cart);
-        alert("Order placed successfully!");
-        localStorage.removeItem("cart");
-        setCart([]);
-    };
+        
+        // Generiramo jedinstveni ID narudžbe
+        const orderId = Date.now().toString();
 
+        // Kreiramo podatke narudžbe
+        const orderData = { id: orderId, ...formData, cart, totalPrice: totalPrice() };
+
+        // Dohvatimo postojeće narudžbe i dodamo novu
+        const existingOrders = JSON.parse(localStorage.getItem("orders")) || [];
+        localStorage.setItem("orders", JSON.stringify([...existingOrders, orderData]));
+
+        alert("Order saved! Redirecting to order review.");
+
+        // Preusmjeravanje na stranicu pregleda narudžbe
+        navigate(`/single-order/${orderId}`);
+    };
+    
     return (
         <div className="checkout container">
             <h1>Checkout</h1>
@@ -77,6 +78,7 @@ const CheckoutPage = () => {
                         </tbody>
                     </table>
                     <h3>Total: {totalPrice()} EUR</h3>
+                    
                     <hr className="my-4"></hr>
                     <h2 className="mb-3">Billing address</h2>
                     <form onSubmit={handleSubmit} className="checkout-form">
@@ -188,9 +190,6 @@ const CheckoutPage = () => {
                         <button type="submit" className="btn btn-success">Continue to checkout</button>
                         <hr className="my-4"></hr>
                     </form>
-
-                    {/* Prikaz QR koda nakon popunjavanja forme */}
-                    <QRCode formData={formData} cart={cart} />
                 </>
             )}
         </div>

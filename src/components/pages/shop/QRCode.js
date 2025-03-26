@@ -10,8 +10,8 @@ const QRCode = ({ formData, cart }) => {
     // Generiraj podatke za QR kod na temelju narudžbe
     const paymentInfo = `HRVHUB30\nEUR\n${totalPrice}\n` +
         `${formData.name}\n${formData.address}\n${formData.city}\n` +
-        "pkoretic J.D.O.O\nPREVOJ DD\n10000 ZAGREB\n" +
-        "HR5041240000000000\nHR01\n7336-68949637625-00001\nCOST\nPlaćanje narudžbe\n";
+        "Aida Knezičić\nFancevljev prilaz 9\n10000 ZAGREB\n" +
+        "HR6123400093201038319\nHR01\n7336-57068423066-00001\nCOST\nPlaćanje narudžbe\n";
 
     return (
         <div className="text-center p-5">
