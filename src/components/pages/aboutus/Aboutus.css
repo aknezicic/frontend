@@ -39,12 +39,10 @@ h1.about-us {
   object-fit: contain;
 }
 .image-caption {
-  position: absolute;
-  bottom: 0px;
-  left: 350px;
   background: rgba(0, 0, 0, 0.6); 
   color: #fff;
   font-size: 24px;
+  text-align: center;
   padding: 5px 10px;
   border-radius: 3px;
   font-family: Arial, sans-serif;

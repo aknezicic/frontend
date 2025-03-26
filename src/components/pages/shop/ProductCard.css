@@ -20,6 +20,7 @@
 .product-image .card-title {
     color: #198754;
     margin-top: 20px;
+    text-align: center;
 }
 .product-image a {
     color: #000;

@@ -18,7 +18,7 @@ const Contact = () => {
     if(!data) return <p>Loading...</p>   
 
     return(
-        <div>
+        <div className="contact">
             <h1 className="contact-us">Contact us</h1>
             <div dangerouslySetInnerHTML={{__html:data.content.rendered}} />
         </div>
